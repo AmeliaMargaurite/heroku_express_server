@@ -25,17 +25,16 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get("/:location/:persons", (req, res) => {
+app.get("/:api/:location/:persons", (req, res) => {
 	const location = listLocations.find(
 		(location) => location.name === req.params.location
 	);
 	const persons = req.params.persons;
-	console.log(req.params.location);
-	console.log({ location, persons });
-	if (location && persons) {
+	const api = req.params.api;
+	if (location && persons && api) {
 		request(
 			{
-				url: `https://oap.ind.nl/oap/api/desks/${location.key}/slots/?productKey=BIO&persons=${persons}`,
+				url: `https://oap.ind.nl/oap/api/desks/${location.key}/slots/?productKey=${api}&persons=${persons}`,
 			},
 			(error, response, body) => {
 				if (error || response.statusCode !== 200) {
@@ -43,13 +42,10 @@ app.get("/:location/:persons", (req, res) => {
 						.status(500)
 						.json({ type: "error", message: error.message });
 				}
-				// res.text(body);
-				// const parts = body.text().split(')]}\',\n{"status":"OK",');
-				// res.json(JSON.parse((body += parts[1])).data);
+
 				let respStart = "{";
 
 				const parts = response.body.split(')]}\',\n{"status":"OK",');
-				console.log(parts[1]);
 				res.json(JSON.parse((respStart += parts[1])).data);
 			}
 		);
