@@ -4,3 +4,4 @@ deployment:
     - export DEPLOYPATH=/home2/ameliama/ind-checker-server.everlearning.com.au
     - /bin/cp index.js $DEPLOYPATH
     - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp package-lock.json $DEPLOYPATH
