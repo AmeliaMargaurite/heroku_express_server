@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/ameliama/ind-checker-server.everlearning.com.au
+    - export DEPLOYPATH=/home/amelkyau/ind-checker-server.ameliamargaurite.dev
     - /bin/cp index.js $DEPLOYPATH
     - /bin/cp package.json $DEPLOYPATH
     - /bin/cp package-lock.json $DEPLOYPATH
