@@ -44,7 +44,9 @@ app.get("/:api/:location/:persons", (req, res) => {
 				}
 
 				let respStart = "{";
-
+				console.log(
+					`Request received: API - ${api}, Location - ${location}, Persons - ${persons}`
+				);
 				const parts = response.body.split(')]}\',\n{"status":"OK",');
 				res.json(JSON.parse((respStart += parts[1])).data);
 			}
