@@ -52,6 +52,10 @@ app.get("/:api/:location/:persons", (req, res) => {
 				res.json(JSON.parse((respStart += parts[1])).data);
 			}
 		);
+	} else {
+		return res
+			.status(500)
+			.json({ type: "error", message: "Missing parameters" });
 	}
 });
 
