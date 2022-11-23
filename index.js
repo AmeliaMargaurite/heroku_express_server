@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/:api/:location/:persons", (req, res) => {
+	console.log("Request received", req);
 	const location = listLocations.find(
 		(location) => location.name === req.params.location
 	);
