@@ -15,6 +15,8 @@ const listLocations = [
 	{ name: "Expat_Amsterdam", key: "284b189314071dcd571df5bb262a31db" },
 ];
 
+const apis = ["BIO", "DOC", "VAA", "TKV"];
+
 const express = require("express");
 const request = require("request");
 
@@ -31,6 +33,19 @@ app.get("/:api/:location/:persons", (req, res) => {
 	);
 	const persons = req.params.persons;
 	const api = req.params.api;
+
+	if (!location) {
+		return res.status(500).json({ type: "error", message: "location" });
+	}
+
+	if (!persons) {
+		return res.status(500).json({ type: "error", message: "persons" });
+	}
+
+	if (!apis.includes(api)) {
+		return res.status(500).json({ type: "error", message: "api" });
+	}
+
 	if (location && persons && api) {
 		request(
 			{
