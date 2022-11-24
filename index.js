@@ -52,10 +52,15 @@ app.get("/:api/:location/:persons", (req, res) => {
 				url: `https://oap.ind.nl/oap/api/desks/${location.key}/slots/?productKey=${api}&persons=${persons}`,
 			},
 			(error, response, body) => {
-				if (error || response.statusCode !== 200) {
+				if (error) {
 					return res
 						.status(500)
 						.json({ type: "error", message: error.message });
+				} else if (response.statusCode !== 200) {
+					console.log(response);
+					return res
+						.status(500)
+						.json({ type: "error", message: "Connection error" });
 				}
 
 				let respStart = "{";
