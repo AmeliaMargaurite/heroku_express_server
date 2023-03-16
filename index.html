@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html {
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+		body {
+			display: grid;
+			height: 100vh;
+			justify-content: center;
+			align-content: center;
+			background: linear-gradient(
+				40deg,
+				#2abd67,
+				#00bc6c,
+				#00ba7b,
+				#00b593,
+				#00aeb1,
+				#00a5d0,
+				#0098e8,
+				#0089f4,
+				#0078f2,
+				#0067e7,
+				#4e59db,
+				#5e54d6
+			);
+		}
+
+		span {
+			position: relative;
+			z-index: 1;
+			padding: 3.2rem;
+		}
+
+		span::before {
+			position: absolute;
+			content: "";
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(
+				90deg,
+				rgb(204, 204, 204),
+				white,
+				rgba(204, 204, 204, 0.034)
+			);
+			z-index: -1;
+			opacity: 0.5;
+			border-radius: 0.8rem;
+		}
+	</style>
+	<body>
+		<span>
+			<h1>
+				Hi there,<br />
+				looking for Amelia's portfolio?
+			</h1>
+			<p>
+				She is currently changing hosts at the moment, but promises the site
+				will be back soon!
+			</p>
+			<p>
+				In the mean time, if you found this site, you now how to contact her
+			</p>
+		</span>
+	</body>
+</html>

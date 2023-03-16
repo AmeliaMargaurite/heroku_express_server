@@ -57,7 +57,6 @@ app.get("/:api/:location/:persons", (req, res) => {
 						.status(500)
 						.json({ type: "error", message: error.message });
 				} else if (response.statusCode !== 200) {
-					console.log(response);
 					return res
 						.status(500)
 						.json({ type: "error", message: "Connection error" });
