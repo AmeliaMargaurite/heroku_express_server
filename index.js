@@ -13,7 +13,7 @@ const listLocations = [
 	{ name: "Enschede_Expat_Center", key: "3535aca0fb9a2e8e8015f768fb3fa69d" },
 	{ name: "Utrecht_Expat_Center", key: "fa24ccf0acbc76a7793765937eaee440" },
 	{ name: "Amsterdam_Expat_Center", key: "284b189314071dcd571df5bb262a31db" },
-	{ name: "Nijmegen_Expat_Center", key: "c8859624705c31ef8189ee7abff7108c" },
+	{ name: "Nijmegen_Expat_Center", key: "0d85a757c13105ba0c26c3d177a7a884" },
 ];
 
 const apis = ["BIO", "DOC", "VAA", "TKV"];
