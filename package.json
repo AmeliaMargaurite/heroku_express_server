@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AmeliaMargaurite/heroku_express_server#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "request": "^2.88.0"
   },

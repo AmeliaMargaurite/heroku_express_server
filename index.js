@@ -20,15 +20,29 @@ const apis = ["BIO", "DOC", "VAA", "TKV"];
 
 const express = require("express");
 const request = require("request");
+const cors = require("cors");
 
 const app = express();
 
-app.use((req, res, next) => {
-	res.header("Access-Control-Allow-Origin", "*");
-	next();
-});
+const allowList = [
+	"https://ind-checker.ameliamargaurite.dev",
+	"http://localhost:3000",
+	"http://localhost:8080",
+];
 
-app.get("/:api/:location/:persons", (req, res) => {
+const checkAllowedOrigin = (req, callback) => {
+	let corsOptions;
+	if (allowList.indexOf(req.header("Origin")) !== -1) {
+		console.log(" here");
+		corsOptions = { origin: true };
+	} else {
+		console.log(req.header("Origin"), allowList[2]);
+		corsOptions = { origin: false };
+	}
+	callback(null, corsOptions);
+};
+
+app.get("/:api/:location/:persons", cors(checkAllowedOrigin), (req, res) => {
 	const location = listLocations.find(
 		(location) => location.name === req.params.location
 	);
